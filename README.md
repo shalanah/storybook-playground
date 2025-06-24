@@ -1,4 +1,15 @@
-# React + TypeScript + Vite
+# Storybook 9 Playground
+
+Testing out storybook 9 + testing integration
+
+## Running
+
+- `nvm use`
+- `pnpm install`
+- `pnpm dev`
+- `pnpm storybook`
+
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -66,4 +77,4 @@ export default tseslint.config([
     },
   },
 ])
-```
+``` -->
