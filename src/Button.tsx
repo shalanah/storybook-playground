@@ -1,10 +1,8 @@
 import clsx from "clsx";
 
-export const Button = ({
-  children,
-  className,
-  ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const Button = ({ children, className, ...props }: ButtonProps) => {
   return (
     <button
       className={clsx(
