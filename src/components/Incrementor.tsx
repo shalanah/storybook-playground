@@ -1,26 +1,23 @@
-import { useState } from "react";
+import { useState, type PropsWithChildren } from "react";
+import { Button } from "./Button";
 
 const clamp = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-type ButtonProps = React.PropsWithChildren<
+type IncButtonProps = PropsWithChildren<
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-const Button = ({ children, ...props }: ButtonProps) => {
+const IncButton = ({ children, ...props }: IncButtonProps) => {
   return (
-    <button
-      className="select-none bg-blue-500 text-white font-bold min-w-[2em] min-h-[2em] rounded flex justify-center items-center leading-0 hover:bg-blue-600 transition-colors duration-200 focus:outline-2 focus:outline-offset-3 focus:outline-dashed focus:outline-color-[currentColor] disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-600"
+    <Button
+      className="select-none w-[2em] h-[2em] justify-center items-center !p-0"
       {...props}
+      variant="primary"
     >
-      <span
-        // This font's metrics don't seem to be friendly to aligning these glyphs - let's just add the right padding below for now and use svgs in future :)
-        className="pb-[.1em]"
-      >
-        {children}
-      </span>
-    </button>
+      {children}
+    </Button>
   );
 };
 
@@ -41,23 +38,23 @@ export const Incrementor = ({
 
   return (
     <div className="flex gap-2 text-xl tabular-nums items-center">
-      <Button
+      <IncButton
         aria-label={`Subtract ${step} from ${count}`}
         disabled={count - step < min}
         onClick={() => setCount((prev) => clamp(prev - step, min, max))}
       >
         -
-      </Button>
+      </IncButton>
       <p className="min-w-[3ch] flex justify-center whitespace-nowrap">
         {count}
       </p>
-      <Button
+      <IncButton
         aria-label={`Add ${step} to ${count}`}
         disabled={count + step > max}
         onClick={() => setCount((prev) => clamp(prev + step, min, max))}
       >
         +
-      </Button>
+      </IncButton>
     </div>
   );
 };
