@@ -23,7 +23,6 @@ export const Page1: Story = {
   args: {
     children: "Page 1",
   },
-
   parameters: {
     layout: "fullscreen",
   },
