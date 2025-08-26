@@ -19,6 +19,12 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story, context) => {
+      const key = JSON.stringify(context.args);
+      return <Story key={key} {...context.args} />;
+    },
+  ],
 };
 
 export default preview;
